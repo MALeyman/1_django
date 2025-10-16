@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Run Django App
+Comment=Запуск Django приложения
+Exec=/home/maksim/develops/python/develops_test/autorized/run_app.sh
+Icon=/home/maksim/develops/python/develops_test/autorized/app/static/app/images/favicon.ico
+Terminal=true

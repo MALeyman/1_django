@@ -1,0 +1,144 @@
+{% load static %}
+<link rel="icon" href="{% static 'app/images/favicon.ico' %}" type="image/x-icon" />
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'app/css/styles.css' %}" />
+    
+    <style>
+        /* дополнительные стили */
+    </style>
+</head>
+<body>
+
+    <h1>Добро пожаловать, <span id="welcomeName"></span></h1>
+
+    <div class="button-container">
+        <button class="button" id="openRegisterBtn">Регистрация</button>
+        <button class="button" id="openLoginBtn">Авторизация</button>
+        <button class="button" id="openProfileBtn">Редактировать профиль</button>
+        <button class="button" id="openRolesBtn">Управление ролями</button>
+        <button class="button" id="openRolePermissionBtn">Редактировать правила</button>
+        <button class="button" id="openDocumentsBtn">Просмотреть документы</button>
+        <button class="button" id="deleteProfileBtn">Удалить профиль</button>
+        <button id="logoutBtn" style="display:none;">Выйти</button>
+    </div>
+
+    <!-- Модальное окно регистрации -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRegisterBtn">&times;</span>
+            <h2>Регистрация пользователя</h2>
+            <form id="registerForm">
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="text" name="first_name" placeholder="Имя" required />
+                <input type="text" name="last_name" placeholder="Фамилия" required />
+                <input type="text" name="middle_name" placeholder="Отчество (необязательно)" />
+                <input type="password" name="password" placeholder="Пароль" required />
+                <input type="password" name="password_confirm" placeholder="Подтвердите пароль" required />
+                <button class="button" type="submit">Зарегистрироваться</button>
+            </form>
+            <div class="error-message" id="registerErrors"></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно авторизации -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLoginBtn">&times;</span>
+            <h2>Авторизация</h2>
+            <form id="loginForm">
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Пароль" required />
+                <button class="button" type="submit">Войти</button>
+            </form>
+            <div class="error-message" id="loginErrors"></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно редактирования профиля -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeProfileBtn">&times;</span>
+            <h2>Редактировать профиль</h2>
+            <form id="profileForm">
+                <input type="text" name="first_name" placeholder="Имя" />
+                <input type="text" name="last_name" placeholder="Фамилия" />
+                <input type="text" id="middleName" name="middle_name" placeholder="Отчество (необязательно)" />
+                <button class="button" type="submit">Сохранить</button>
+            </form>
+            <div class="error-message" id="profileErrors"></div>
+        </div>
+    </div>
+
+    <!-- Модальное окно управления ролями -->
+    <div id="rolesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRolesBtn">&times;</span>
+            <h2>Управление ролями</h2>
+            <table id="rolesTable" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ccc; padding: 5px;">Пользователь</th>
+                        <th style="border: 1px solid #ccc; padding: 5px;">Роль</th>
+                        <th style="border: 1px solid #ccc; padding: 5px;">Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Модальное окно редактирования правил -->
+    <div id="rolePermissionModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRolePermissionBtn">&times;</span>
+            <h2>Редактирование правил доступа</h2>
+            <table id="rolePermissionTable" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid #ccc; padding: 5px;">ID</th>
+                        <th style="border: 1px solid #ccc; padding: 5px;">Роль</th>
+                        <th style="border: 1px solid #ccc; padding: 5px;">Разрешение</th>
+                        <th style="border: 1px solid #ccc; padding: 5px;">Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- Модальное просмотра документов -->
+    <div id="documentsModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-btn" id="closeDocumentsBtn">&times;</span>
+        <h2>Документы</h2>
+        <div id="documentsContent">
+    
+        </div>
+    </div>
+    </div>
+
+
+    
+    <script src="{% static 'app/js/begin.js' %}"></script>
+    <script src="{% static 'app/js/registration.js' %}"></script>
+    <script src="{% static 'app/js/autorization.js' %}"></script>
+    <script src="{% static 'app/js/profile_edit.js' %}"></script>
+    <script src="{% static 'app/js/profile_del.js' %}"></script>
+    <script src="{% static 'app/js/logout.js' %}"></script>
+    <script src="{% static 'app/js/roles_edit.js' %}"></script>
+    <script src="{% static 'app/js/role_permission.js' %}"></script>
+    <script src="{% static 'app/js/open_documents.js' %}"></script>
+
+</body>
+</html>
+
