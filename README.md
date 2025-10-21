@@ -4,6 +4,6 @@
 
 | Название                   | Описание                       | Ссылка                           |
 |----------------------------|--------------------------------|----------------------------------------------|
-| AuthManager   |   Авторизация. Управление доступом и разграничение прав (Django)  | [GitHub](https://github.com/MALeyman/projects/tree/main/Django/DjangoManagerAuth)  |  
+| AuthManager   |   Авторизация. Управление доступом и разграничение прав (Django)  | [GitHub](https://github.com/MALeyman/1_django/tree/main/DjangoManagerAuth)  |  
 
 ---------------------------
